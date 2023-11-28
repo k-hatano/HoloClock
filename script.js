@@ -67,40 +67,40 @@ function drawCanvas() {
   ctx.strokeStyle = "#FFFFFF";
   ctx.fillStyle = "#FFFFFF";
   if (width >= height) {
-    clockCenterY = height * 1.2 / 6;
+    clockCenterY = height * 1.1 / 6;
     clockRadius = height / 6;
   } else {
-    clockCenterY = top + (width * 1.2 / 6);
+    clockCenterY = top + (width * 1.1 / 6);
     clockRadius = width / 6;
   }
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 2;
   ctx.arc(clockCenterX, clockCenterY, clockRadius, 0, 2 * Math.PI, false);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 2;
   ctx.moveTo(clockCenterX, clockCenterY);
   ctx.lineTo(clockCenterX + Math.sin(hour / 12 * Math.PI * 2) * clockRadius * 0.6,
    clockCenterY - Math.cos(hour / 12 * Math.PI * 2) * clockRadius * 0.6);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth;
+  ctx.lineWidth = clockLineWidth * 1.5;
   ctx.moveTo(clockCenterX, clockCenterY);
   ctx.lineTo(clockCenterX + Math.sin(minute / 60 * Math.PI * 2) * clockRadius * 0.9,
    clockCenterY - Math.cos(minute / 60 * Math.PI * 2) * clockRadius * 0.9);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 0.5;
+  ctx.lineWidth = clockLineWidth;
   ctx.moveTo(clockCenterX, clockCenterY);
   ctx.lineTo(clockCenterX + Math.sin(second / 60 * Math.PI * 2) * clockRadius * 0.9,
    clockCenterY - Math.cos(second / 60 * Math.PI * 2) * clockRadius * 0.9);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 2;
   ctx.arc(clockCenterX, clockCenterY, clockLineWidth * 2, 0, 2 * Math.PI, false);
   ctx.fill();
 
@@ -109,33 +109,33 @@ function drawCanvas() {
   var clockCenterY2 = height - clockCenterY;
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 2;
   ctx.arc(clockCenterX, clockCenterY2, clockRadius, 0, 2 * Math.PI, false);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 2;
   ctx.moveTo(clockCenterX, clockCenterY2);
   ctx.lineTo(clockCenterX + Math.sin(hour / 12 * Math.PI * 2) * clockRadius * 0.6,
    clockCenterY2 + Math.cos(hour / 12 * Math.PI * 2) * clockRadius * 0.6);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth;
+  ctx.lineWidth = clockLineWidth * 1.5;
   ctx.moveTo(clockCenterX, clockCenterY2);
   ctx.lineTo(clockCenterX + Math.sin(minute / 60 * Math.PI * 2) * clockRadius * 0.9,
    clockCenterY2 + Math.cos(minute / 60 * Math.PI * 2) * clockRadius * 0.9);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 0.5;
+  ctx.lineWidth = clockLineWidth;
   ctx.moveTo(clockCenterX, clockCenterY2);
   ctx.lineTo(clockCenterX + Math.sin(second / 60 * Math.PI * 2) * clockRadius * 0.9,
    clockCenterY2 + Math.cos(second / 60 * Math.PI * 2) * clockRadius * 0.9);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 2;
   ctx.arc(clockCenterX, clockCenterY2, clockLineWidth * 2, 0, 2 * Math.PI, false);
   ctx.fill();
 
@@ -143,27 +143,27 @@ function drawCanvas() {
 
   var clockCenterX3 = 0;
   if (width >= height) {
-    clockCenterX3 = left + (height * 1.2 / 6);
+    clockCenterX3 = left + (height * 1.1 / 6);
   } else {
-    clockCenterX3 = width * 1.2 / 6;
+    clockCenterX3 = width * 1.1 / 6;
   }
   var clockCenterX4 = width - clockCenterX3;
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 1.75;
   ctx.moveTo(clockCenterX3 - clockRadius, height / 2);
   ctx.lineTo(clockCenterX3 + clockRadius, height / 2);
   ctx.stroke();
 
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 1;
-  ctx.moveTo(clockCenterX3, height / 2 + clockLineWidth * 1.5);
+  ctx.moveTo(clockCenterX3, height / 2 + clockLineWidth * 2);
   ctx.lineTo(clockCenterX3 - Math.cos(hour / 12 * Math.PI * 2) * clockRadius * 0.6,
-   height / 2 + clockLineWidth * 1.5);
+   height / 2 + clockLineWidth * 2);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth;
+  ctx.lineWidth = clockLineWidth * 1;
   ctx.moveTo(clockCenterX3, height / 2 + clockLineWidth * 2.5);
   ctx.lineTo(clockCenterX3 - Math.cos(minute / 60 * Math.PI * 2) * clockRadius * 0.9,
    height / 2 + clockLineWidth * 2.5);
@@ -171,34 +171,34 @@ function drawCanvas() {
 
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 0.5;
-  ctx.moveTo(clockCenterX3, height / 2 + clockLineWidth * 3);
+  ctx.moveTo(clockCenterX3, height / 2 + clockLineWidth * 3.5);
   ctx.lineTo(clockCenterX3 - Math.cos(second / 60 * Math.PI * 2) * clockRadius * 0.9,
-   height / 2 + clockLineWidth * 3);
+   height / 2 + clockLineWidth * 3.5);
   ctx.stroke();
 
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 4;
   ctx.moveTo(clockCenterX3, height / 2);
-  ctx.lineTo(clockCenterX3, height / 2 + clockLineWidth * 4);
+  ctx.lineTo(clockCenterX3, height / 2 + clockLineWidth * 4.5);
   ctx.stroke();
 
   // East
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth * 1.5;
+  ctx.lineWidth = clockLineWidth * 1.75;
   ctx.moveTo(clockCenterX4 - clockRadius, height / 2);
   ctx.lineTo(clockCenterX4 + clockRadius, height / 2);
   ctx.stroke();
 
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 1;
-  ctx.moveTo(clockCenterX4, height / 2 + clockLineWidth * 1.5);
+  ctx.moveTo(clockCenterX4, height / 2 + clockLineWidth * 2);
   ctx.lineTo(clockCenterX4 + Math.cos(hour / 12 * Math.PI * 2) * clockRadius * 0.6,
-   height / 2 + clockLineWidth * 1.5);
+   height / 2 + clockLineWidth * 2);
   ctx.stroke();
 
   ctx.beginPath();
-  ctx.lineWidth = clockLineWidth;
+  ctx.lineWidth = clockLineWidth * 1;
   ctx.moveTo(clockCenterX4, height / 2 + clockLineWidth * 2.5);
   ctx.lineTo(clockCenterX4 + Math.cos(minute / 60 * Math.PI * 2) * clockRadius * 0.9,
    height / 2 + clockLineWidth * 2.5);
@@ -206,15 +206,15 @@ function drawCanvas() {
 
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 0.5;
-  ctx.moveTo(clockCenterX4, height / 2 + clockLineWidth * 3);
+  ctx.moveTo(clockCenterX4, height / 2 + clockLineWidth * 3.5);
   ctx.lineTo(clockCenterX4 + Math.cos(second / 60 * Math.PI * 2) * clockRadius * 0.9,
-   height / 2 + clockLineWidth * 3);
+   height / 2 + clockLineWidth * 3.5);
   ctx.stroke();
 
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 4;
   ctx.moveTo(clockCenterX4, height / 2);
-  ctx.lineTo(clockCenterX4, height / 2 + clockLineWidth * 4);
+  ctx.lineTo(clockCenterX4, height / 2 + clockLineWidth * 4.5);
   ctx.stroke();
 }
 
