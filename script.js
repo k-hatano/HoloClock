@@ -1,5 +1,7 @@
 
 var gShowDiagonalLines = true;
+var gClockRadiusRate = 0.16;
+var gClockYPositionRate = 0.19;
 
 onload = _ => {
   initialize();
@@ -67,11 +69,11 @@ function drawCanvas() {
   ctx.strokeStyle = "#FFFFFF";
   ctx.fillStyle = "#FFFFFF";
   if (width >= height) {
-    clockCenterY = height * 1.1 / 6;
-    clockRadius = height / 6;
+    clockCenterY = height * gClockYPositionRate;
+    clockRadius = height * gClockRadiusRate;
   } else {
-    clockCenterY = top + (width * 1.1 / 6);
-    clockRadius = width / 6;
+    clockCenterY = top + (width * gClockYPositionRate);
+    clockRadius = width * gClockRadiusRate;
   }
   ctx.beginPath();
   ctx.lineWidth = clockLineWidth * 2;
@@ -143,9 +145,9 @@ function drawCanvas() {
 
   var clockCenterX3 = 0;
   if (width >= height) {
-    clockCenterX3 = left + (height * 1.1 / 6);
+    clockCenterX3 = left + (height * gClockYPositionRate);
   } else {
-    clockCenterX3 = width * 1.1 / 6;
+    clockCenterX3 = width * gClockYPositionRate;
   }
   var clockCenterX4 = width - clockCenterX3;
 
@@ -263,13 +265,46 @@ function showDiagonalLinesChanged(event) {
   return false;
 }
 
+function changeShowDiagonalLines(checked) {
+  document.getElementById('show_diagonal_lines').checked = checked;
+  gShowDiagonalLines = checked;
+  drawCanvas();
+}
+
 
 function mainContainerKeyPressed() {
   var keyCode = event.keyCode;
+  if (keyCode == 38 || keyCode == 107 || keyCode == 67 || keyCode == 187 || keyCode == 49 || keyCode == 97 || keyCode == 228) { // 上、プラス、C、1、ゲームパッド90
+    gClockYPositionRate -= 0.01;
+    if (gClockYPositionRate < 0) {
+      gClockYPositionRate = 0;
+    }
+    drawCanvas();
+    return;
+  }
+  if (keyCode == 40 || keyCode == 109 || keyCode == 68 || keyCode == 189 || keyCode == 50 || keyCode == 98 || keyCode == 227) { // 下、マイナス、D、2、ゲームパッド89
+    gClockYPositionRate += 0.01;
+    if (gClockYPositionRate > 0.5) {
+      gClockYPositionRate = 0.5;
+    }
+    drawCanvas();
+    return;
+  }
+  if (keyCode == 51 || keyCode == 99 || keyCode == 69 || keyCode == 37) { // 3、E、左
+    changeShowDiagonalLines(false);
+    drawCanvas();
+    return;
+  }
+  if (keyCode == 52 || keyCode == 100 || keyCode == 70 || keyCode == 39) { // 4、F、右
+    changeShowDiagonalLines(true);
+    drawCanvas();
+    return;
+  }
   if (keyCode == 13) {
     switchSettingVisibility();
+    drawCanvas();
+    return;
   }
-  drawCanvas();
 }
 
 function heartbeat() {
